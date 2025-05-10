@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earning Tips</title>
+  <style>
+    /* RESET + BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      color: #212529;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 15px;
+      padding-bottom: 80px;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin: 20px 0 15px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2b2d42;
+    }
+
+    /* TOP DEALS */
+    .deals-section {
+      margin: 20px 0;
+    }
+    .deals-section h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #343a40;
+      padding-left: 5px;
+    }
+    .deals {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    .deals::-webkit-scrollbar {
+      display: none;
+    }
+    .deal-card {
+      min-width: 160px;
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .deal-card img {
+      width: 100%;
+      border-radius: 6px;
+      height: 90px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .deal-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .deal-card p {
+      font-size: 12px;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+    .deal-card button {
+      background: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .deal-card button:hover {
+      background: #21867a;
+    }
+
+    /* EARNING METHODS */
+    .methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+    .method {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .method-header {
+      padding: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .method-content {
+      display: none;
+      padding: 0 14px 14px;
+    }
+    .method.active .method-content {
+      display: block;
+    }
+    .platform {
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+    }
+    .platform:first-child {
+      border-top: none;
+    }
+    .platform-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    .platform-logo {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      margin-right: 8px;
+      object-fit: contain;
+    }
+    .platform h4 {
+      font-size: 15px;
+      margin: 0;
+    }
+    .platform p {
+      font-size: 13px;
+      color: #6c757d;
+      margin-bottom: 8px;
+      margin-left: 32px;
+    }
+    .platform .btn-group {
+      display: flex;
+      gap: 8px;
+      margin-left: 32px;
+    }
+    .platform button {
+      flex: 1;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-join {
+      background: #2a9d8f;
+      color: white;
+    }
+    .btn-join:hover {
+      background: #21867a;
+    }
+    .btn-buy {
+      background: #264653;
+      color: white;
+    }
+    .btn-buy:hover {
+      background: #1d3557;
+    }
+    .btn-install {
+      background: #6a4c93;
+      color: white;
+    }
+    .btn-install:hover {
+      background: #5a3d7a;
+    }
+
+    /* METHOD COLORS */
+    .method-1 .method-header { background: #e3f2fd; color: #0d3b66; }
+    .method-2 .method-header { background: #e8f5e9; color: #1b4332; }
+    .method-3 .method-header { background: #fff3cd; color: #5c4b00; }
+    .method-4 .method-header { background: #f8d7da; color: #721c24; }
+    .method-5 .method-header { background: #e2e3e5; color: #383d41; }
+    .method-6 .method-header { background: #d1ecf1; color: #0c5460; }
+    .method-7 .method-header { background: #f5e6ff; color: #4b0082; }
+    .method-8 .method-header { background: #ffe8e8; color: #8b0000; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Xstreet</h1>
+    </div>
+
+    <!-- TOP DEALS -->
+    <div class="deals-section">
+      <h2>Hot Deals</h2>
+      <div class="deals">
+        <div class="deal-card">
+          <img src="pic/BestorSetof5Combo.webp" alt="Gaming Headset">
+          <h3>Mobile Bestor Set of 5 Combo</h3>
+          <p>Good if you want to Play Games like Free Fire , BGMI and Minecraft (mobile)</p>
+          <button onclick="window.open('https://fktr.in/w3wrbHT', '_blank')">Buy Now</button>
+        </div>
+        <div class="deal-card">
+          <img src="pic/SpinBotIceDotsemi-conducter.webp" alt="Smart Watch">
+          <h3>SpinBot IceDot</h3>
+          <p>semi-conducter based Mobile Cooler for Android/iOS Smartphones Gaming Accessory Kit</p>
+          <button onclick="window.open('https://fktr.in/sZH9Hec', '_blank')">Buy Now</button>
+        </div>
+        <div class="deal-card">
+          <img src="pic/SpinBotBattleBudz.webp" alt="VPN Service">
+          <h3>SpinBot BattleBudz</h3>
+          <p>W20 Wired Gaming Earphones with Boom Mic for Mobiles,PC,Xbox Wired Gaming</p>
+          <button onclick="window.open('https://fktr.in/YvdiaKM', '_blank')">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASHION CATEGORY -->
+    <div class="method method-6" onclick="toggleMethod(this)">
+      <div class="method-header">
+        <span>Aesthetic Clothes</span>
+        <span>+</span>
+      </div>
+      <div class="method-content">
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/MinimalistsAnalogWatch.webp" class="platform-logo" alt="Depop">
+            <h4>Minimalists Analog Watch - For Men NT38024PP25</h4>
+          </div>
+          <p>Simple but creative mix with gentlement and Aesthetic</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/OwPhdiR', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/SolidMenGreyRegularShorts.webp" class="platform-logo" alt="Poshmark">
+            <h4>Solid Men Grey Regular Shorts</h4>
+          </div>
+          <p>Stylish men shorts for summer</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/Mi5gdNu', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/UVProtectionRectangular.webp" class="platform-logo" alt="Poshmark">
+            <h4>UV Protection Rectangular Sunglasses (Free Size) (For Men & Women, Black)</h4>
+          </div>
+          <p>Aesthetic Sunglasses for boys and girls</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open(' https://fktr.in/vkrruuK', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/MenRegularFitStripedMandarinCollarCasualShirt.webp" class="platform-logo" alt="Poshmark">
+            <h4>Men Regular Fit Striped Mandarin Collar Casual Shirt (Pack of 2)</h4>
+          </div>
+          <p>Perfect with every combination</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/bwmqutw', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="/web3/pic/MenPrintedTypographyRoundNeckPolyesterBlackTShirt.webp" class="platform-logo" alt="Poshmark">
+            <h4>Men Printed, Typography Round Neck Polyester Black T-Shirt</h4>
+          </div>
+          <p>Anime lover T-shirt</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/9Ugqwmy', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/2PCSHerKingHisQueenBlack.webp" class="platform-logo" alt="Poshmark">
+            <h4>2PCS Her King His Queen Black Titanium Stainless Steel Couple Rings Stainless Steel Black Silver Plated Ring Set Stainless Steel Titanium Plated Ring Set</h4>
+          </div>
+          <p>Perfect gift for bf/gf </p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/r7WCMtz', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/MenPrintedPoloNeckCottonBlendBeigeT-Shirt.webp" class="platform-logo" alt="Poshmark">
+            <h4>Men Printed Polo Neck Cotton Blend Beige T-Shirt</h4>
+          </div>
+          <p>Gentlement looked T-shirt</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/wcGPWPv', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/MenLooseFitMidRiseLight BlueJeans.webp" class="platform-logo" alt="Poshmark">
+            <h4>Men Loose Fit Mid Rise Light Blue Jeans</h4>
+          </div>
+          <p>Oversize but fir street were jeans for men</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/mY2n4Dt', '_blank')">Shop</button>
+          </div>
+        </div>
+        <div class="platform">
+          <div class="platform-header">
+            <img src="pic/MenPrintedRoundNeckCottonBlendBeigeShirt.webp" class="platform-logo" alt="Poshmark">
+            <h4>Men Printed Round Neck Cotton Blend Beige T-Shirt</h4>
+          </div>
+          <p>Rich looking & affodable t-shirt for men</p>
+          <div class="btn-group">
+            <button class="btn-buy" onclick="window.open('https://fktr.in/hkYdGdt', '_blank')">Shop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EARNING WAYS -->
+    <div class="header">
+      <h1>Earning Ways</h1>
+    </div>
+
+    <div class="methods">
+      <!-- SHARE INTERNET -->
+      <div class="method method-1" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Share Internet</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/heneygain.png" class="platform-logo" alt="Honeygain">
+              <h4>Honeygain</h4>
+            </div>
+            <p>Earn by sharing unused bandwidth</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://r.honeygain.me/LANGW726F5', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/pawn.jpeg" class="platform-logo" alt="Pawns App">
+              <h4>Pawns App</h4>
+            </div>
+            <p>Get paid for idle internet/Play games</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://pawns.app/?r=3068377', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/earnapp.com" class="platform-logo" alt="EarnApp">
+              <h4>EarnApp</h4>
+            </div>
+            <p>Earn money by sharing your internet connection</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://earnapp.com/i/NaX2PCwr', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/grass.io" class="platform-logo" alt="Grass">
+              <h4>Grass</h4>
+            </div>
+            <p>Earn by sharing your unused internet</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://app.grass.io/register/?referralCode=0cnfMhwF2eQYXQU', '_blank')">Install Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAY GAMES -->
+      <div class="method method-2" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Play Games</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/swagbuck.png" class="platform-logo" alt="Swagbucks">
+              <h4>Swagbucks</h4>
+            </div>
+            <p>Earn rewards playing mobile games</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.swagbucks.com/p/register?rb=152817477&rp=1', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/freecash.jpeg" class="platform-logo" alt="Freecash">
+              <h4>Freecash</h4>
+            </div>
+            <p>Get paid to try new games</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://freecash.com/r/17d01e2f1a', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/Gamee.webp" class="platform-logo" alt="Gamee">
+              <h4>Gamee</h4>
+            </div>
+            <p>Get paid by playing games</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://prizes.gamee.com/get/k2u9zbqz', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashmonkey.png" class="platform-logo" alt="Cash Monkey">
+              <h4>Cash Monkey</h4>
+            </div>
+            <p>Get paid by playing games/Daily log-in</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashmonkey.page.link/VLvn', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/Make Money.webp" class="platform-logo" alt="Make Money">
+              <h4>Make Money: Play & Earn</h4>
+            </div>
+            <p>Earn cash by playing games</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://crrnt.me/MAsUk0j9ESb', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/jumptask.jpeg" class="platform-logo" alt="JumpTask">
+              <h4>JumpTask</h4>
+            </div>
+            <p>Complete tasks and earn crypto</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.jumptask.io/r/vozeselexuvi', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/wombat.png" class="platform-logo" alt="Wombat">
+              <h4>Wombat</h4>
+            </div>
+            <p>Play games and earn rewards (Code: 3U89BW4)</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.swagbucks.com/p/register?rb=152817477&rp=1', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashbuck.png" class="platform-logo" alt="Cashbucks">
+              <h4>Cashbucks</h4>
+            </div>
+            <p>Play games and earn cash</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://invite.cashbucks.app/?uid=WccSEQXbMXgSa0dc3CnxzVvPFFF3', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/chillar.jpg" class="platform-logo" alt="Chiller">
+              <h4>Chiller</h4>
+            </div>
+            <p>Play games and earn money (Code: 7H9AY3)</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://chillar.co.in/referral?userId=12365284-e9cc-4447-81ba-e0b5a651c44b&userName=Mebabit+Langwar&referralCode=7H9AY3', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cointiply.jpeg" class="platform-logo" alt="Cointiply">
+              <h4>Cointiply</h4>
+            </div>
+            <p>Earn crypto by playing games</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('http://cointiply.com/r/god22O', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/earnable.png" class="platform-logo" alt="Earnably">
+              <h4>Earnably</h4>
+            </div>
+            <p>Complete offers and play games</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://earnably.com/join/3122390', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/mpl.live" class="platform-logo" alt="MPL Pro">
+              <h4>MPL Pro</h4>
+            </div>
+            <p>Play games and win money (Code: N5DKKFTU)</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://api.whatsapp.com/send?phone=917838533787&text=I\'d%20like%20to%20redeem%20my%20referral%20Codes%20a80pb6gj%26N5DKKFTU', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/appkarma.png" class="platform-logo" alt="AppKarma">
+              <h4>AppKarma</h4>
+            </div>
+            <p>Earn by playing games</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://xkr.ma/PNxBX6IaFSb', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/zupee.com" class="platform-logo" alt="Zupee">
+              <h4>Zupee</h4>
+            </div>
+            <p>Play games and win real money</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://zupeeludo.onelink.me/DQna?af_xp=referral&pid=referral&deep_link_value=50571s49xw&c=referral', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashmafia.png" class="platform-logo" alt="Cash Mafia">
+              <h4>Cash Mafia</h4>
+            </div>
+            <p>Play games and earn cash</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashmafia.page.link/Fbok', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/Brainy.webp" class="platform-logo" alt="Brainy">
+              <h4>Brainy</h4>
+            </div>
+            <p>Play trivia and earn money</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://6square.page.link/drrq', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/CashRunner.webp" class="platform-logo" alt="Cash Runner">
+              <h4>Cash Runner</h4>
+            </div>
+            <p>Run and earn cash rewards</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashrunner.page.link/KCzA', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/superpay.me" class="platform-logo" alt="SuperPayMe">
+              <h4>SuperPayMe</h4>
+            </div>
+            <p>Earn by completing offers</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.superpay.me/?ref=Meba', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/earnapp.com" class="platform-logo" alt="EarnApp">
+              <h4>EarnApp</h4>
+            </div>
+            <p>Earn by sharing internet</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://earnapp.com/i/NaX2PCwr', '_blank')">Install Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TELEGRAM BOTS -->
+      <div class="method method-3" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Telegram Bots</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/clickbeeBTC.jpg" class="platform-logo" alt="Click Bee BTC">
+              <h4>Click Bee BTC</h4>
+            </div>
+            <p>Earn crypto by clicking</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://t.me/ClickBeeBTCBot?start=7383079336', '_blank')">Join Bot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMALL INVESTMENTS -->
+      <div class="method method-4" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Small Investments</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/richind.com" class="platform-logo" alt="Richind">
+              <h4>Richind</h4>
+            </div>
+            <p>Invest rs260, refer friends 2=rs400</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://richind.org?referrer_code=RINDPJKCAC', '_blank')">Sign Up</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/jar.jpg" class="platform-logo" alt="MPL">
+              <h4>Jar</h4>
+            </div>
+            <p>Invest in Gold min rs10, hold gold, sell rs50</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://jar.onelink.me/6H9Q/vd5qkige', '_blank')">Sign Up</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/stopover.jpg" class="platform-logo" alt="Zupee">
+              <h4>Stopover</h4>
+            </div>
+            <p>Invest min rs40, free design cloths, promote amnd earn commision.</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://stopover.store/invite/1830493', '_blank')">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WATCH ADS -->
+      <div class="method method-5" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Watch Ads</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashbuck.png" class="platform-logo" alt="Cashbucks">
+              <h4>Cashbucks</h4>
+            </div>
+            <p>Earn points watching videos/play games/scrach/...</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://invite.cashbucks.app/?uid=WccSEQXbMXgSa0dc3CnxzVvPFFF3', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/timebuck.jpeg" class="platform-logo" alt="TaskBucks">
+              <h4>TimeBucks</h4>
+            </div>
+            <p>Complete tasks and watch ads</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('http://tbk.bz/1na4ujbn', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/stan.png" class="platform-logo" alt="Stan">
+              <h4>Stan</h4>
+            </div>
+            <p>Watch ads and earn rewards</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://getstan.page.link/e86oaNYwe8K3c9ka8', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/rooter.jpg" class="platform-logo" alt="Rooter">
+              <h4>Rooter</h4>
+            </div>
+            <p>Watch ads and earn money</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://rooter.app.link/B9d4eMzRwSb', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/Timepass.webp" class="platform-logo" alt="Timepass">
+              <h4>Timepass</h4>
+            </div>
+            <p>Watch ads and earn (Code: CJ18N4)</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://timepass.app/yLpY/40j0ch4c', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/Tap&Earn.webp" class="platform-logo" alt="Tap & Earn">
+              <h4>Tap & Earn</h4>
+            </div>
+            <p>Tap and earn cash rewards</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://tapnearn.page.link/CWpn', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashmonkey.png" class="platform-logo" alt="Cash Monkey">
+              <h4>Cash Monkey</h4>
+            </div>
+            <p>Watch ads and play games</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashmonkey.page.link/VLvn', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/earnably.com" class="platform-logo" alt="Earnably">
+              <h4>Earnably</h4>
+            </div>
+            <p>Watch videos and earn</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://earnably.com/join/3122390', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/sweatco.in" class="platform-logo" alt="Sweatcoin">
+              <h4>Sweatcoin</h4>
+            </div>
+            <p>Walk and earn rewards</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://swcapp.com/i/mebabitlangwar', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/CashRunner.webp" class="platform-logo" alt="Cash Runner">
+              <h4>Cash Runner</h4>
+            </div>
+            <p>Watch ads and earn</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashrunner.page.link/KCzA', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/cointiply.com" class="platform-logo" alt="Cointiply">
+              <h4>Cointiply</h4>
+            </div>
+            <p>Watch ads for crypto</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('http://cointiply.com/r/god22O', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/cashwolf.jpg" class="platform-logo" alt="Cashwolf">
+              <h4>Cashwolf</h4>
+            </div>
+            <p>Watch ads and earn rewards</p>
+            <div class="btn-group">
+              <button class="btn-install" onclick="window.open('https://cashwolf.page.link/5xEj', '_blank')">Install Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/swagbucks.com" class="platform-logo" alt="Swagbucks">
+              <h4>Swagbucks</h4>
+            </div>
+            <p>Watch videos and earn</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.swagbucks.com/p/register?rb=152817477&rp=1', '_blank')">Join Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <!-- Cashback -->
+      <div class="method method-8" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Earn while shopping</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/cashkaro.com" class="platform-logo" alt="Cashkaro">
+              <h4>Cashkaro</h4>
+            </div>
+            <p>Get cashback when shopping online</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://cashkaro.com?r=21517733&fname=Luffy', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/earnkaro.com" class="platform-logo" alt="Earnkaro">
+              <h4>Earnkaro</h4>
+            </div>
+            <p>Get paid when friends purchase from your link</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://earnkaro.com?r=3774102&fname=Luffy', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/paytm.com" class="platform-logo" alt="Paytm">
+              <h4>Paytm</h4>
+            </div>
+            <p>Get cashback on payments</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://p.paytm.me/xCTH/9j912cwy', '_blank')">Join Now</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Surveys -->
+      <div class="method method-5" onclick="toggleMethod(this)">
+        <div class="method-header">
+          <span>Surveys</span>
+          <span>+</span>
+        </div>
+        <div class="method-content">
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/appkarma.png" class="platform-logo" alt="AppKarma">
+              <h4>AppKarma</h4>
+            </div>
+            <p>Complete surveys and earn</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://xkr.ma/PNxBX6IaFSb', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="pic/logo/AttaPoll.png" class="platform-logo" alt="AttaPoll">
+              <h4>AttaPoll</h4>
+            </div>
+            <p>Answer surveys for cash</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://attapoll.app/join/gzsds', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/ysense.com" class="platform-logo" alt="Ysense">
+              <h4>Ysense</h4>
+            </div>
+            <p>Complete surveys and earn money</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.ysense.com/?rb=210429217', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/prizerebel.com" class="platform-logo" alt="PrizeRebel">
+              <h4>PrizeRebel</h4>
+            </div>
+            <p>Take surveys for rewards</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.prizerebel.com/index.php?r=15731689', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/viewfruit.com" class="platform-logo" alt="ViewFruit">
+              <h4>ViewFruit</h4>
+            </div>
+            <p>Complete surveys and earn</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://in.viewfruit.com/Index/register/inviteid/NTUwMjU2OkpSTU5ZOUtOUU44OExIS1k0SlNW.html', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/mobrog.com" class="platform-logo" alt="Mobrog">
+              <h4>Mobrog</h4>
+            </div>
+            <p>Answer surveys on your phone</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://mobrog.com/?membership_promotion=0&i_invite=24070337-680137c809bd5&rkm=38', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/grabpoints.com" class="platform-logo" alt="GrabPoints">
+              <h4>GrabPoints</h4>
+            </div>
+            <p>Complete surveys for rewards</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://grabpoints.com?ref=8TTZD2', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/superpay.me" class="platform-logo" alt="SuperPayMe">
+              <h4>SuperPayMe</h4>
+            </div>
+            <p>Take surveys and earn</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('https://www.superpay.me/?ref=Meba', '_blank')">Join Now</button>
+            </div>
+          </div>
+          <div class="platform">
+            <div class="platform-header">
+              <img src="https://logo.clearbit.com/cointiply.com" class="platform-logo" alt="Cointiply">
+              <h4>Cointiply</h4>
+            </div>
+            <p>Complete surveys for crypto</p>
+            <div class="btn-group">
+              <button class="btn-join" onclick="window.open('http://cointiply.com/r/god22O', '_blank')">Join Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMethod(element) {
+      // Close all other open methods first
+      document.querySelectorAll('.method').forEach(method => {
+        if (method !== element) {
+          method.classList.remove('active');
+          method.querySelector('.method-header span:last-child').textContent = '+';
+        }
+      });
+      
+      // Toggle clicked method
+      element.classList.toggle('active');
+      const header = element.querySelector('.method-header span:last-child');
+      header.textContent = element.classList.contains('active') ? '-' : '+';
+    }
+  </script>
+</body>
+</html>
